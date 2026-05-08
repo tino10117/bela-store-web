@@ -9,6 +9,17 @@
         * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Poppins', sans-serif; }
         body { background: #fff9f0; color: #333; }
 
+        /* BARRA ENVIOS */
+        .barra-envio {
+            background: #d4af37;
+            color: #1a1a1a;
+            text-align: center;
+            padding: 8px;
+            font-size: 13px;
+            font-weight: 600;
+            letter-spacing: 1px;
+        }
+
         header {
             background: linear-gradient(135deg, #1a1a1a, #2d2d2d);
             padding: 15px 20px;
@@ -36,6 +47,19 @@
         .btn-gold { background: #d4af37; color: #1a1a1a; border: none; padding: 14px 40px; border-radius: 30px; font-size: 16px; font-weight: 700; cursor: pointer; transition: all 0.3s; text-decoration: none; display: inline-block; }
         .btn-gold:hover { background: #b8960b; transform: translateY(-2px); }
 
+        /* CONTADOR */
+        .contador-banner {
+            background: linear-gradient(135deg, #3d2b00, #1a1a1a);
+            padding: 20px 40px;
+            text-align: center;
+            border-bottom: 2px solid #d4af37;
+        }
+        .contador-banner p { color: #d4af37; font-size: 16px; font-weight: 700; margin-bottom: 10px; }
+        .contador-numeros { display: flex; justify-content: center; gap: 15px; }
+        .contador-item { background: #d4af37; color: #1a1a1a; border-radius: 10px; padding: 10px 15px; min-width: 65px; text-align: center; }
+        .contador-item .numero { font-size: 28px; font-weight: 700; display: block; }
+        .contador-item .label { font-size: 11px; font-weight: 600; }
+
         .separador { height: 2px; background: linear-gradient(to right, transparent, #d4af37, transparent); margin: 20px 0; }
 
         .main-layout { display: flex; min-height: 60vh; }
@@ -55,7 +79,7 @@
         .contenido { flex: 1; padding: 25px; margin-left: 220px; transition: margin-left 0.3s ease; }
         .contenido.expandido { margin-left: 0; }
 
-        .seccion-titulo { font-size: 22px; font-weight: 700; color: #b8860b; margin-bottom: 20px; display: flex; align-items: center; gap: 10px; }
+        .seccion-titulo { font-size: 22px; font-weight: 700; color: #b8860b; margin-bottom: 20px; }
 
         .buscador-wrap { margin-bottom: 20px; }
         .buscador { width: 100%; padding: 12px 20px; border: 2px solid #d4af37; border-radius: 30px; font-size: 15px; outline: none; background: white; color: #333; }
@@ -80,11 +104,23 @@
         .btn-ver { flex: 1; background: white; color: #d4af37; border: 2px solid #d4af37; padding: 9px; border-radius: 8px; font-weight: 600; cursor: pointer; transition: all 0.3s; font-size: 12px; }
         .btn-ver:hover { background: #d4af37; color: white; }
 
-        .carrito-float { position: fixed; bottom: 30px; right: 30px; background: #d4af37; color: white; border: none; width: 58px; height: 58px; border-radius: 50%; font-size: 22px; cursor: pointer; box-shadow: 0 4px 20px rgba(212,175,55,0.4); transition: all 0.3s; z-index: 200; }
+        /* TESTIMONIOS */
+        .testimonios-section { background: linear-gradient(135deg, #1a1a1a, #2d2d2d); padding: 50px 40px; }
+        .testimonios-section h2 { color: #d4af37; text-align: center; font-size: 28px; margin-bottom: 30px; }
+        .testimonios-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 20px; max-width: 1000px; margin: 0 auto; }
+        .testimonio { background: #2d2d2d; border-radius: 16px; padding: 25px; border: 1px solid #d4af37; }
+        .testimonio-estrellas { color: #d4af37; font-size: 18px; margin-bottom: 10px; }
+        .testimonio-texto { color: #ccc; font-size: 14px; margin-bottom: 15px; line-height: 1.6; font-style: italic; }
+        .testimonio-nombre { color: #d4af37; font-weight: 700; font-size: 14px; }
+
+        .carrito-float { position: fixed; bottom: 90px; right: 30px; background: #d4af37; color: white; border: none; width: 58px; height: 58px; border-radius: 50%; font-size: 22px; cursor: pointer; box-shadow: 0 4px 20px rgba(212,175,55,0.4); transition: all 0.3s; z-index: 200; }
         .carrito-float:hover { transform: scale(1.1); }
         .carrito-count { position: absolute; top: -5px; right: -5px; background: #e74c3c; color: white; border-radius: 50%; width: 20px; height: 20px; font-size: 11px; display: flex; align-items: center; justify-content: center; font-weight: 700; }
 
-        /* MODAL */
+        /* WHATSAPP FLOTANTE */
+        .whatsapp-float { position: fixed; bottom: 30px; right: 30px; background: #25D366; color: white; border: none; width: 58px; height: 58px; border-radius: 50%; font-size: 28px; cursor: pointer; box-shadow: 0 4px 20px rgba(37,211,102,0.4); transition: all 0.3s; z-index: 200; text-decoration: none; display: flex; align-items: center; justify-content: center; }
+        .whatsapp-float:hover { transform: scale(1.1); }
+
         .modal-overlay { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.7); z-index: 300; align-items: center; justify-content: center; }
         .modal-overlay.active { display: flex; }
         .modal { background: white; border-radius: 20px; padding: 30px; width: 95%; max-width: 540px; max-height: 88vh; overflow-y: auto; }
@@ -103,11 +139,10 @@
         .admin-form.active { display: block; }
         .hint { font-size: 11px; color: #aaa; margin-top: -8px; margin-bottom: 10px; }
 
-        /* DETALLE PRODUCTO */
         .detalle-overlay { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.7); z-index: 300; align-items: center; justify-content: center; }
         .detalle-overlay.active { display: flex; }
         .detalle-modal { background: white; border-radius: 20px; padding: 30px; width: 95%; max-width: 600px; max-height: 88vh; overflow-y: auto; }
-        .detalle-img { width: 100%; height: 300px; object-fit: cover; border-radius: 12px; margin-bottom: 20px; background: linear-gradient(135deg, #f5e6c8, #fff8e7); display: flex; align-items: center; justify-content: center; font-size: 80px; overflow: hidden; }
+        .detalle-img { width: 100%; height: 300px; border-radius: 12px; margin-bottom: 20px; background: linear-gradient(135deg, #f5e6c8, #fff8e7); display: flex; align-items: center; justify-content: center; font-size: 80px; overflow: hidden; }
         .detalle-img img { width: 100%; height: 100%; object-fit: cover; }
 
         .contacto { background: linear-gradient(135deg, #1a1a1a, #3d2b00); padding: 50px 40px; text-align: center; color: white; }
@@ -123,14 +158,19 @@
             .contenido { margin-left: 0; }
             .sidebar { transform: translateX(-220px); }
             .sidebar.abierto { transform: translateX(0); }
-}    </style>
+            .testimonios-section { padding: 30px 20px; }
+        }
+    </style>
 </head>
 <body>
+
+<!-- BARRA SUPERIOR -->
+<div class="barra-envio">🚚 Envíos a todo el país • Pagá con Mercado Pago 💙</div>
 
 <header>
     <div class="header-left">
         <button class="menu-toggle" onclick="toggleSidebar()">☰</button>
-        <div class="logo">🛍️ BELA <span>STORE</span></div>
+        <div class="logo">🛍️ BELA <span>STORE</span> 🤎</div>
     </div>
     <div class="header-right">
         <nav>
@@ -146,6 +186,16 @@
     <h1>✨ Nueva Colección</h1>
     <p>Moda femenina y masculina • Envíos a todo el país</p>
     <a href="#productos" class="btn-gold">Ver colección</a>
+</div>
+
+<!-- CONTADOR -->
+<div class="contador-banner">
+    <p>⏰ ¡Oferta por tiempo limitado!</p>
+    <div class="contador-numeros">
+        <div class="contador-item"><span class="numero" id="horas">00</span><span class="label">Horas</span></div>
+        <div class="contador-item"><span class="numero" id="minutos">00</span><span class="label">Minutos</span></div>
+        <div class="contador-item"><span class="numero" id="segundos">00</span><span class="label">Segundos</span></div>
+    </div>
 </div>
 
 <div class="separador"></div>
@@ -168,13 +218,38 @@
         <div class="buscador-wrap">
             <input class="buscador" type="text" placeholder="🔍 Buscá una prenda..." oninput="buscar(this.value)">
         </div>
-        <div class="seccion-titulo" id="seccion-titulo">🏠 Inicio</div>
+        <div class="seccion-titulo" id="seccion-titulo">🏠 Destacados en Inicio</div>
         <div class="productos-grid" id="grid-productos"></div>
     </div>
 </div>
 
 <div class="separador"></div>
 
+<!-- TESTIMONIOS -->
+<div class="testimonios-section">
+    <h2>❤️ Lo que dicen nuestras clientas</h2>
+    <div class="testimonios-grid">
+        <div class="testimonio">
+            <div class="testimonio-estrellas">⭐⭐⭐⭐⭐</div>
+            <p class="testimonio-texto">"Compré el conjunto sastrero y quedé enamorada. La calidad es increíble y llegó súper rápido. ¡Ya quiero el siguiente!"</p>
+            <div class="testimonio-nombre">— Valentina M.</div>
+        </div>
+        <div class="testimonio">
+            <div class="testimonio-estrellas">⭐⭐⭐⭐⭐</div>
+            <p class="testimonio-texto">"Los pantalones sastreros son exactamente como en las fotos. Me los puse el primer día y recibí mil piropos. ¡Los recomiendo!"</p>
+            <div class="testimonio-nombre">— Lucía G.</div>
+        </div>
+        <div class="testimonio">
+            <div class="testimonio-estrellas">⭐⭐⭐⭐⭐</div>
+            <p class="testimonio-texto">"Atención excelente, respondieron rápido por WhatsApp y el envío llegó en tiempo. La ropa es de muy buena calidad."</p>
+            <div class="testimonio-nombre">— Sofía R.</div>
+        </div>
+    </div>
+</div>
+
+<div class="separador"></div>
+
+<!-- CONTACTO -->
 <div class="contacto" id="contacto">
     <h2>📲 Contacto</h2>
     <p>📱 WhatsApp: <strong>3716507393</strong></p>
@@ -184,9 +259,13 @@
     <a href="https://wa.me/3716507393" class="btn-whatsapp" target="_blank">💬 Escribinos por WhatsApp</a>
 </div>
 
+<!-- CARRITO FLOTANTE -->
 <button class="carrito-float" onclick="verCarrito()">
     🛒<span class="carrito-count" id="carrito-count">0</span>
 </button>
+
+<!-- WHATSAPP FLOTANTE -->
+<a href="https://wa.me/3716507393" class="whatsapp-float" target="_blank">💬</a>
 
 <!-- MODAL ADMIN -->
 <div class="modal-overlay" id="modal-admin">
@@ -202,7 +281,6 @@
         </div>
         <div class="admin-form" id="admin-form">
             <p style="color:green; margin-bottom:15px; font-size:13px">✅ Sesión iniciada como Admin</p>
-
             <h3>➕ Agregar producto</h3>
             <input type="text" id="nuevo-nombre" placeholder="Nombre del producto">
             <select id="nueva-categoria">
@@ -217,7 +295,7 @@
             <input type="number" id="nuevo-precio" placeholder="Precio (ej: 15000)">
             <input type="text" id="nuevo-talle" placeholder="Talles disponibles (ej: S, M, L)">
             <textarea id="nueva-desc" placeholder="Descripción del producto" rows="2"></textarea>
-            <input type="text" id="nueva-foto" placeholder="🔗 Link de la foto (de Instagram o Google Fotos)">
+            <input type="text" id="nueva-foto" placeholder="🔗 Link de la foto">
             <p class="hint">Subí la foto a Instagram → copiá el link → pegalo acá</p>
             <div class="check-row">
                 <label><input type="checkbox" id="es-oferta"> 🔥 Oferta</label>
@@ -227,7 +305,6 @@
                 <button class="btn-cerrar" onclick="cerrarAdmin()">Cerrar</button>
                 <button class="btn-guardar" onclick="agregarProducto()">✅ Agregar</button>
             </div>
-
             <div class="separador"></div>
             <h3>✏️ Editar producto</h3>
             <select id="editar-select" onchange="cargarEditar()"></select>
@@ -240,7 +317,6 @@
             <div class="modal-btns">
                 <button class="btn-guardar" onclick="editarProducto()">💾 Guardar cambios</button>
             </div>
-
             <div class="separador"></div>
             <h3>🗑️ Eliminar producto</h3>
             <select id="eliminar-select"></select>
@@ -248,7 +324,6 @@
                 <button class="btn-cerrar" onclick="cerrarAdmin()">Cerrar</button>
                 <button class="btn-rojo" onclick="eliminarProducto()">🗑️ Eliminar</button>
             </div>
-
             <div class="separador"></div>
             <button class="btn-cerrar" onclick="logout()" style="width:100%">Cerrar sesión</button>
         </div>
@@ -293,7 +368,7 @@
         { nombre: "Sweater oversized rosa", categoria: "Sweaters", precio: 18000, talle: "Único", descripcion: "Sweater oversize súper cómodo para el invierno.", foto: "", oferta: true, inicio: true },
         { nombre: "Conjunto sastrero gris", categoria: "Conjuntos", precio: 25000, talle: "S, M, L", descripcion: "Conjunto de pantalón y blazer sastrero a juego.", foto: "", oferta: false, inicio: false },
         { nombre: "Buzo hombre gris", categoria: "Ropa de hombre", precio: 16000, talle: "M, L, XL", descripcion: "Buzo de algodón frizado, cómodo y abrigado.", foto: "", oferta: false, inicio: false },
-        { nombre: "Sweater hombre azul", categoria: "Ropa de hombre", precio: 17000, talle: "M, L, XL", descripcion: "Sweater de hilo, ideal para el frío.", foto: "", oferta: false, inicio: false },
+        { nombre: "Sweater hombre azul", categoria: "Ropa de hombre", precio: 17000, talle: "M, L, XL", descripcion: "Sweater de hilo, ideal para el frío.", oferta: false, inicio: false },
         { nombre: "Remera hombre negra", categoria: "Ropa de hombre", precio: 9000, talle: "M, L, XL", descripcion: "Remera básica de algodón para hombre.", foto: "", oferta: false, inicio: false },
     ];
 
@@ -307,7 +382,6 @@
     function mostrarProductos() {
         let lista = productos;
         const titulo = document.getElementById('seccion-titulo');
-
         if (categoriaActiva === 'inicio') {
             lista = productos.filter(p => p.inicio);
             titulo.textContent = '🏠 Destacados en Inicio';
@@ -317,15 +391,10 @@
             lista = productos.filter(p => p.categoria === categoriaActiva);
             titulo.textContent = categoriaActiva;
         }
-
         if (busquedaActiva) lista = lista.filter(p => p.nombre.toLowerCase().includes(busquedaActiva.toLowerCase()));
-
         const grid = document.getElementById('grid-productos');
         grid.innerHTML = '';
-        if (lista.length === 0) {
-            grid.innerHTML = '<p style="color:#888; grid-column:1/-1; text-align:center; padding:40px">No se encontraron productos.</p>';
-            return;
-        }
+        if (lista.length === 0) { grid.innerHTML = '<p style="color:#888; grid-column:1/-1; text-align:center; padding:40px">No se encontraron productos.</p>'; return; }
         lista.forEach(p => {
             const idx = productos.indexOf(p);
             grid.innerHTML += `
@@ -360,16 +429,18 @@
     function buscar(v) { busquedaActiva = v; mostrarProductos(); }
 
     function toggleSidebar() {
-    sidebarAbierto = !sidebarAbierto;
-    const sidebar = document.getElementById('sidebar');
-    const contenido = document.getElementById('contenido');
-    if (window.innerWidth <= 768) {
-        sidebar.classList.toggle('abierto', sidebarAbierto);
-    } else {
-        sidebar.classList.toggle('cerrado', !sidebarAbierto);
-        contenido.classList.toggle('expandido', !sidebarAbierto);
+        sidebarAbierto = !sidebarAbierto;
+        const sidebar = document.getElementById('sidebar');
+        const contenido = document.getElementById('contenido');
+        if (window.innerWidth <= 768) {
+            sidebar.classList.toggle('abierto', sidebarAbierto);
+        } else {
+            sidebar.classList.toggle('cerrado', !sidebarAbierto);
+            contenido.classList.toggle('expandido', !sidebarAbierto);
+        }
     }
-}    function agregarCarrito(i) {
+
+    function agregarCarrito(i) {
         carrito.push(productos[i]);
         document.getElementById('carrito-count').textContent = carrito.length;
         alert(`✅ ${productos[i].nombre} agregado!`);
@@ -391,10 +462,7 @@
     function cerrarDetalle() { document.getElementById('detalle-overlay').classList.remove('active'); }
 
     function agregarDesdeDetalle() {
-        if (productoDetalleActual !== null) {
-            agregarCarrito(productoDetalleActual);
-            cerrarDetalle();
-        }
+        if (productoDetalleActual !== null) { agregarCarrito(productoDetalleActual); cerrarDetalle(); }
     }
 
     function verCarrito() {
@@ -446,8 +514,7 @@
         productos[i].foto = foto;
         productos[i].oferta = document.getElementById('editar-oferta').checked;
         productos[i].inicio = document.getElementById('editar-inicio').checked;
-        guardar();
-        mostrarProductos();
+        guardar(); mostrarProductos();
         alert('✅ Producto actualizado!');
     }
 
@@ -462,9 +529,7 @@
         const inicio = document.getElementById('es-inicio').checked;
         if (!nombre || !precio || !talle || !descripcion) { alert('Completá todos los campos'); return; }
         productos.push({ nombre, categoria, precio, talle, descripcion, foto, oferta, inicio });
-        guardar();
-        mostrarProductos();
-        actualizarSelects();
+        guardar(); mostrarProductos(); actualizarSelects();
         alert(`✅ ${nombre} agregado!`);
         document.getElementById('nuevo-nombre').value = '';
         document.getElementById('nuevo-precio').value = '';
@@ -477,14 +542,30 @@
         const i = document.getElementById('eliminar-select').value;
         if (confirm(`¿Eliminar ${productos[i].nombre}?`)) {
             productos.splice(i, 1);
-            guardar();
-            mostrarProductos();
-            actualizarSelects();
+            guardar(); mostrarProductos(); actualizarSelects();
             alert('✅ Eliminado');
         }
     }
 
+    // CONTADOR
+    function iniciarContador() {
+        const fin = new Date();
+        fin.setHours(23, 59, 59, 0);
+        setInterval(() => {
+            const ahora = new Date();
+            const diff = fin - ahora;
+            if (diff <= 0) { document.getElementById('horas').textContent = '00'; document.getElementById('minutos').textContent = '00'; document.getElementById('segundos').textContent = '00'; return; }
+            const h = Math.floor(diff / 3600000);
+            const m = Math.floor((diff % 3600000) / 60000);
+            const s = Math.floor((diff % 60000) / 1000);
+            document.getElementById('horas').textContent = String(h).padStart(2, '0');
+            document.getElementById('minutos').textContent = String(m).padStart(2, '0');
+            document.getElementById('segundos').textContent = String(s).padStart(2, '0');
+        }, 1000);
+    }
+
     mostrarProductos();
+    iniciarContador();
 </script>
 </body>
 </html>
