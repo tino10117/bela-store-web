@@ -325,8 +325,27 @@
                 <button class="btn-rojo" onclick="eliminarProducto()">🗑️ Eliminar</button>
             </div>
             <div class="separador"></div>
-            <button class="btn-cerrar" onclick="logout()" style="width:100%">Cerrar sesión</button>
-        </div>
+            <h3>💬 Editar testimonios</h3>
+            <p style="font-size:12px; color:#aaa; margin-bottom:10px">Editá los comentarios de tus clientas</p>
+            
+            <p style="font-size:13px; font-weight:600; margin-bottom:5px">Testimonio 1</p>
+            <input type="text" id="test1-nombre" placeholder="Nombre (ej: Valentina M.)">
+            <textarea id="test1-texto" placeholder="Comentario" rows="2"></textarea>
+            
+            <p style="font-size:13px; font-weight:600; margin-bottom:5px">Testimonio 2</p>
+            <input type="text" id="test2-nombre" placeholder="Nombre (ej: Lucía G.)">
+            <textarea id="test2-texto" placeholder="Comentario" rows="2"></textarea>
+            
+            <p style="font-size:13px; font-weight:600; margin-bottom:5px">Testimonio 3</p>
+            <input type="text" id="test3-nombre" placeholder="Nombre (ej: Sofía R.)">
+            <textarea id="test3-texto" placeholder="Comentario" rows="2"></textarea>
+            
+            <div class="modal-btns">
+                <button class="btn-guardar" onclick="guardarTestimonios()">💾 Guardar testimonios</button>
+            </div>
+
+            <div class="separador"></div>
+            <button class="btn-cerrar" onclick="logout()" style="width:100%">Cerrar sesión</button>        </div>
     </div>
 </div>
 
@@ -487,8 +506,8 @@
         document.getElementById('login-form').classList.remove('active');
         document.getElementById('admin-form').classList.add('active');
         actualizarSelects();
+        cargarTestimonios();
     }
-
     function actualizarSelects() {
         const opts = productos.map((p, i) => `<option value="${i}">${p.nombre}</option>`).join('');
         document.getElementById('eliminar-select').innerHTML = opts;
@@ -563,8 +582,42 @@
             document.getElementById('segundos').textContent = String(s).padStart(2, '0');
         }, 1000);
     }
+function cargarTestimonios() {
+        const t = JSON.parse(localStorage.getItem('bela-testimonios') || 'null') || [
+            { nombre: "Valentina M.", texto: "Compré el conjunto sastrero y quedé enamorada. La calidad es increíble y llegó súper rápido. ¡Ya quiero el siguiente!" },
+            { nombre: "Lucía G.", texto: "Los pantalones sastreros son exactamente como en las fotos. Me los puse el primer día y recibí mil piropos. ¡Los recomiendo!" },
+            { nombre: "Sofía R.", texto: "Atención excelente, respondieron rápido por WhatsApp y el envío llegó en tiempo. La ropa es de muy buena calidad." }
+        ];
+        document.getElementById('test1-nombre').value = t[0].nombre;
+        document.getElementById('test1-texto').value = t[0].texto;
+        document.getElementById('test2-nombre').value = t[1].nombre;
+        document.getElementById('test2-texto').value = t[1].texto;
+        document.getElementById('test3-nombre').value = t[2].nombre;
+        document.getElementById('test3-texto').value = t[2].texto;
+        mostrarTestimonios(t);
+    }
 
-    mostrarProductos();
+    function guardarTestimonios() {
+        const t = [
+            { nombre: document.getElementById('test1-nombre').value, texto: document.getElementById('test1-texto').value },
+            { nombre: document.getElementById('test2-nombre').value, texto: document.getElementById('test2-texto').value },
+            { nombre: document.getElementById('test3-nombre').value, texto: document.getElementById('test3-texto').value },
+        ];
+        localStorage.setItem('bela-testimonios', JSON.stringify(t));
+        mostrarTestimonios(t);
+        alert('✅ Testimonios actualizados!');
+    }
+
+    function mostrarTestimonios(t) {
+        const grid = document.querySelector('.testimonios-grid');
+        grid.innerHTML = t.map(t => `
+            <div class="testimonio">
+                <div class="testimonio-estrellas">⭐⭐⭐⭐⭐</div>
+                <p class="testimonio-texto">"${t.texto}"</p>
+                <div class="testimonio-nombre">— ${t.nombre}</div>
+            </div>
+        `).join('');
+    }    mostrarProductos();
     iniciarContador();
 </script>
 </body>
