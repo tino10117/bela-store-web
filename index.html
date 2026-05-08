@@ -9,10 +9,9 @@
         * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Poppins', sans-serif; }
         body { background: #fff9f0; color: #333; }
 
-        /* HEADER */
         header {
             background: linear-gradient(135deg, #1a1a1a, #2d2d2d);
-            padding: 20px 40px;
+            padding: 15px 20px;
             display: flex;
             justify-content: space-between;
             align-items: center;
@@ -21,31 +20,23 @@
             z-index: 100;
             box-shadow: 0 4px 20px rgba(0,0,0,0.3);
         }
-        .logo { font-size: 28px; font-weight: 700; color: #d4af37; letter-spacing: 2px; }
-        .logo span { color: white; }
-        nav a { color: #d4af37; text-decoration: none; margin-left: 30px; font-weight: 500; transition: color 0.3s; }
-        nav a:hover { color: white; }
-        .admin-btn {
-            background: #d4af37;
-            color: #1a1a1a;
-            border: none;
-            padding: 8px 20px;
-            border-radius: 20px;
-            font-weight: 700;
-            cursor: pointer;
-            margin-left: 20px;
-            transition: all 0.3s;
+        .header-left { display: flex; align-items: center; gap: 15px; }
+        .menu-toggle {
+            background: none; border: none; color: #d4af37;
+            font-size: 28px; cursor: pointer; padding: 5px;
+            transition: transform 0.3s;
         }
-        .admin-btn:hover { background: #b8960b; }
+        .menu-toggle:hover { transform: scale(1.1); }
+        .logo { font-size: 24px; font-weight: 700; color: #d4af37; letter-spacing: 2px; }
+        .logo span { color: white; }
+        nav a { color: #d4af37; text-decoration: none; font-weight: 500; margin-left: 20px; transition: color 0.3s; }
+        nav a:hover { color: white; }
 
-        /* BANNER */
         .banner {
             background: linear-gradient(135deg, #1a1a1a, #3d2b00);
-            padding: 80px 40px;
-            text-align: center;
-            animation: fadeIn 1.2s ease;
+            padding: 70px 40px; text-align: center; animation: fadeIn 1.2s ease;
         }
-        .banner h1 { font-size: 52px; color: #d4af37; margin-bottom: 15px; letter-spacing: 3px; }
+        .banner h1 { font-size: 48px; color: #d4af37; margin-bottom: 15px; letter-spacing: 3px; }
         .banner p { font-size: 18px; color: #ccc; margin-bottom: 30px; }
         .btn-gold {
             background: #d4af37; color: #1a1a1a; border: none; padding: 14px 40px;
@@ -54,103 +45,85 @@
         }
         .btn-gold:hover { background: #b8960b; transform: translateY(-2px); }
 
-        /* SEPARADOR */
-        .separador { height: 2px; background: linear-gradient(to right, transparent, #d4af37, transparent); margin: 30px 0; }
+        .separador { height: 2px; background: linear-gradient(to right, transparent, #d4af37, transparent); margin: 20px 0; }
 
-        /* LAYOUT PRINCIPAL */
-        .main-layout { display: flex; min-height: 100vh; }
+        .main-layout { display: flex; min-height: 60vh; position: relative; }
 
         /* SIDEBAR */
         .sidebar {
             width: 220px;
             background: #1a1a1a;
-            padding: 30px 15px;
-            position: sticky;
-            top: 70px;
-            height: calc(100vh - 70px);
+            padding: 25px 15px;
+            position: fixed;
+            top: 60px;
+            left: 0;
+            height: calc(100vh - 60px);
             overflow-y: auto;
+            z-index: 50;
+            transition: transform 0.3s ease;
+            box-shadow: 4px 0 20px rgba(0,0,0,0.3);
         }
-        .sidebar h3 { color: #d4af37; font-size: 14px; text-transform: uppercase; letter-spacing: 2px; margin-bottom: 20px; }
+        .sidebar.cerrado { transform: translateX(-220px); }
+        .sidebar h3 { color: #d4af37; font-size: 13px; text-transform: uppercase; letter-spacing: 2px; margin-bottom: 20px; }
         .cat-btn {
-            display: block;
-            width: 100%;
-            text-align: left;
-            background: transparent;
-            border: 1px solid #333;
-            color: #ccc;
-            padding: 12px 15px;
-            border-radius: 10px;
-            cursor: pointer;
-            font-weight: 500;
-            margin-bottom: 8px;
-            transition: all 0.3s;
-            font-size: 14px;
+            display: block; width: 100%; text-align: left;
+            background: transparent; border: 1px solid #333; color: #ccc;
+            padding: 11px 14px; border-radius: 10px; cursor: pointer;
+            font-weight: 500; margin-bottom: 8px; transition: all 0.3s; font-size: 13px;
         }
-        .cat-btn:hover, .cat-btn.active {
-            background: #d4af37;
-            color: #1a1a1a;
-            border-color: #d4af37;
-            font-weight: 700;
+        .cat-btn:hover, .cat-btn.active { background: #d4af37; color: #1a1a1a; border-color: #d4af37; font-weight: 700; }
+
+        .contenido {
+            flex: 1;
+            padding: 25px;
+            margin-left: 220px;
+            transition: margin-left 0.3s ease;
         }
+        .contenido.expandido { margin-left: 0; }
 
-        /* CONTENIDO */
-        .contenido { flex: 1; padding: 30px; }
-
-        /* BUSCADOR */
-        .buscador-wrap { margin-bottom: 25px; }
+        .buscador-wrap { margin-bottom: 20px; }
         .buscador {
-            width: 100%;
-            padding: 14px 20px;
-            border: 2px solid #d4af37;
-            border-radius: 30px;
-            font-size: 16px;
-            outline: none;
-            background: white;
-            color: #333;
-            transition: all 0.3s;
+            width: 100%; padding: 12px 20px;
+            border: 2px solid #d4af37; border-radius: 30px;
+            font-size: 15px; outline: none; background: white; color: #333;
         }
         .buscador:focus { box-shadow: 0 0 0 3px rgba(212,175,55,0.2); }
 
-        /* PRODUCTOS */
         .productos-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-            gap: 25px;
+            grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));
+            gap: 20px;
         }
         .tarjeta {
-            background: white;
-            border-radius: 16px;
-            overflow: hidden;
-            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
-            transition: all 0.3s ease;
+            background: white; border-radius: 16px; overflow: hidden;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.08); transition: all 0.3s ease;
             border: 1px solid #f0e0b0;
         }
-        .tarjeta:hover { transform: translateY(-8px); box-shadow: 0 16px 40px rgba(212,175,55,0.2); }
+        .tarjeta:hover { transform: translateY(-6px); box-shadow: 0 16px 40px rgba(212,175,55,0.2); }
         .tarjeta-img {
-            width: 100%; height: 220px;
+            width: 100%; height: 200px;
             background: linear-gradient(135deg, #f5e6c8, #fff8e7);
-            display: flex; align-items: center; justify-content: center; font-size: 60px;
+            display: flex; align-items: center; justify-content: center; font-size: 55px;
             overflow: hidden;
         }
         .tarjeta-img img { width: 100%; height: 100%; object-fit: cover; }
-        .tarjeta-body { padding: 18px; }
+        .tarjeta-body { padding: 15px; }
         .tarjeta-categoria { font-size: 11px; color: #aaa; text-transform: uppercase; letter-spacing: 1px; }
-        .tarjeta-nombre { font-size: 16px; font-weight: 700; color: #1a1a1a; margin: 6px 0; }
-        .tarjeta-desc { font-size: 13px; color: #666; margin-bottom: 8px; }
-        .tarjeta-talle { font-size: 12px; color: #888; margin-bottom: 12px; }
-        .tarjeta-precio { font-size: 22px; font-weight: 700; color: #b8860b; margin-bottom: 12px; }
-        .oferta-badge { background: #e74c3c; color: white; font-size: 11px; font-weight: 700; padding: 3px 10px; border-radius: 20px; display: inline-block; margin-bottom: 6px; }
-        .tarjeta-btns { display: flex; gap: 8px; }
-        .btn-agregar { flex: 1; background: #d4af37; color: white; border: none; padding: 10px; border-radius: 8px; font-weight: 600; cursor: pointer; transition: all 0.3s; font-size: 13px; }
+        .tarjeta-nombre { font-size: 15px; font-weight: 700; color: #1a1a1a; margin: 5px 0; }
+        .tarjeta-desc { font-size: 12px; color: #666; margin-bottom: 7px; }
+        .tarjeta-talle { font-size: 12px; color: #888; margin-bottom: 10px; }
+        .tarjeta-precio { font-size: 20px; font-weight: 700; color: #b8860b; margin-bottom: 10px; }
+        .oferta-badge { background: #e74c3c; color: white; font-size: 10px; font-weight: 700; padding: 2px 8px; border-radius: 20px; display: inline-block; margin-bottom: 5px; }
+        .tarjeta-btns { display: flex; gap: 7px; }
+        .btn-agregar { flex: 1; background: #d4af37; color: white; border: none; padding: 9px; border-radius: 8px; font-weight: 600; cursor: pointer; transition: all 0.3s; font-size: 12px; }
         .btn-agregar:hover { background: #b8960b; }
-        .btn-ver { flex: 1; background: white; color: #d4af37; border: 2px solid #d4af37; padding: 10px; border-radius: 8px; font-weight: 600; cursor: pointer; transition: all 0.3s; font-size: 13px; }
+        .btn-ver { flex: 1; background: white; color: #d4af37; border: 2px solid #d4af37; padding: 9px; border-radius: 8px; font-weight: 600; cursor: pointer; transition: all 0.3s; font-size: 12px; }
         .btn-ver:hover { background: #d4af37; color: white; }
 
-        /* CARRITO FLOTANTE */
         .carrito-float {
             position: fixed; bottom: 30px; right: 30px;
             background: #d4af37; color: white; border: none;
-            width: 60px; height: 60px; border-radius: 50%; font-size: 24px;
+            width: 58px; height: 58px; border-radius: 50%; font-size: 22px;
             cursor: pointer; box-shadow: 0 4px 20px rgba(212,175,55,0.4);
             transition: all 0.3s; z-index: 200;
         }
@@ -158,67 +131,39 @@
         .carrito-count {
             position: absolute; top: -5px; right: -5px;
             background: #e74c3c; color: white; border-radius: 50%;
-            width: 22px; height: 22px; font-size: 12px;
+            width: 20px; height: 20px; font-size: 11px;
             display: flex; align-items: center; justify-content: center; font-weight: 700;
         }
 
-        /* MODAL ADMIN */
-        .modal-overlay {
-            display: none; position: fixed; top: 0; left: 0;
-            width: 100%; height: 100%; background: rgba(0,0,0,0.7);
-            z-index: 300; align-items: center; justify-content: center;
-        }
-        .modal-overlay.active { display: flex; }
-        .modal {
-            background: white; border-radius: 20px; padding: 40px;
-            width: 90%; max-width: 500px; max-height: 80vh; overflow-y: auto;
-        }
-        .modal h2 { color: #b8860b; margin-bottom: 20px; }
-        .modal input, .modal textarea, .modal select {
-            width: 100%; padding: 12px; margin-bottom: 12px;
-            border: 2px solid #f0e0b0; border-radius: 10px; font-size: 14px; outline: none;
-        }
-        .modal input:focus, .modal textarea:focus { border-color: #d4af37; }
-        .modal-btns { display: flex; gap: 10px; margin-top: 10px; }
-        .btn-cerrar { background: #eee; color: #333; border: none; padding: 12px 24px; border-radius: 10px; cursor: pointer; font-weight: 600; }
-        .btn-guardar { background: #d4af37; color: white; border: none; padding: 12px 24px; border-radius: 10px; cursor: pointer; font-weight: 700; flex: 1; }
-
-        /* LOGIN */
-        .login-form { display: none; }
-        .login-form.active { display: block; }
-        .admin-form { display: none; }
-        .admin-form.active { display: block; }
-
-        /* CONTACTO */
-        .contacto { background: linear-gradient(135deg, #1a1a1a, #3d2b00); padding: 60px 40px; text-align: center; color: white; }
-        .contacto h2 { color: #d4af37; font-size: 32px; margin-bottom: 20px; }
-        .contacto p { color: #ccc; font-size: 16px; margin: 8px 0; }
-        .btn-whatsapp { display: inline-block; margin-top: 20px; background: #25D366; color: white; padding: 14px 40px; border-radius: 30px; text-decoration: none; font-weight: 700; font-size: 16px; transition: all 0.3s; }
+        .contacto { background: linear-gradient(135deg, #1a1a1a, #3d2b00); padding: 50px 40px; text-align: center; color: white; }
+        .contacto h2 { color: #d4af37; font-size: 30px; margin-bottom: 20px; }
+        .contacto p { color: #ccc; font-size: 15px; margin: 8px 0; }
+        .btn-whatsapp { display: inline-block; margin-top: 20px; background: #25D366; color: white; padding: 13px 35px; border-radius: 30px; text-decoration: none; font-weight: 700; font-size: 15px; transition: all 0.3s; }
         .btn-whatsapp:hover { background: #1da851; transform: translateY(-2px); }
 
         @keyframes fadeIn { from { opacity: 0; transform: translateY(-20px); } to { opacity: 1; transform: translateY(0); } }
 
         @media (max-width: 768px) {
-            .banner h1 { font-size: 32px; }
-            .sidebar { width: 160px; }
-            nav { display: none; }
+            .banner h1 { font-size: 28px; }
+            .contenido { margin-left: 0; }
+            .sidebar { transform: translateX(-220px); }
         }
     </style>
 </head>
 <body>
 
-<!-- HEADER -->
 <header>
-    <div class="logo">🛍️ BELA <span>STORE</span></div>
+    <div class="header-left">
+        <button class="menu-toggle" onclick="toggleSidebar()">☰</button>
+        <div class="logo">🛍️ BELA <span>STORE</span></div>
+    </div>
     <nav>
         <a href="#inicio">Inicio</a>
         <a href="#productos">Productos</a>
         <a href="#contacto">Contacto</a>
-        <button class="admin-btn" onclick="abrirAdmin()">🔐 Admin</button>
     </nav>
 </header>
 
-<!-- BANNER -->
 <div class="banner" id="inicio">
     <h1>✨ Nueva Colección</h1>
     <p>Moda femenina y masculina • Envíos a todo el país</p>
@@ -227,11 +172,8 @@
 
 <div class="separador"></div>
 
-<!-- LAYOUT -->
 <div class="main-layout" id="productos">
-
-    <!-- SIDEBAR -->
-    <div class="sidebar">
+    <div class="sidebar" id="sidebar">
         <h3>📂 Categorías</h3>
         <button class="cat-btn active" onclick="filtrar('todas', this)">🏠 Todas</button>
         <button class="cat-btn" onclick="filtrar('Pantalones sastreros', this)">👖 Pantalones</button>
@@ -243,8 +185,7 @@
         <button class="cat-btn" onclick="filtrar('Ropa de hombre', this)">👔 Hombre</button>
     </div>
 
-    <!-- CONTENIDO -->
-    <div class="contenido">
+    <div class="contenido" id="contenido">
         <div class="buscador-wrap">
             <input class="buscador" type="text" placeholder="🔍 Buscá una prenda..." oninput="buscar(this.value)">
         </div>
@@ -254,7 +195,6 @@
 
 <div class="separador"></div>
 
-<!-- CONTACTO -->
 <div class="contacto" id="contacto">
     <h2>📲 Contacto</h2>
     <p>📱 WhatsApp: <strong>3716507393</strong></p>
@@ -264,67 +204,17 @@
     <a href="https://wa.me/3716507393" class="btn-whatsapp" target="_blank">💬 Escribinos por WhatsApp</a>
 </div>
 
-<!-- CARRITO FLOTANTE -->
 <button class="carrito-float" onclick="verCarrito()">
     🛒<span class="carrito-count" id="carrito-count">0</span>
 </button>
 
-<!-- MODAL ADMIN -->
-<div class="modal-overlay" id="modal-admin">
-    <div class="modal">
-        <h2>🔐 Panel Admin</h2>
-
-        <div class="login-form active" id="login-form">
-            <input type="text" id="usuario-input" placeholder="Usuario">
-            <input type="password" id="clave-input" placeholder="Contraseña">
-            <div class="modal-btns">
-                <button class="btn-cerrar" onclick="cerrarAdmin()">Cancelar</button>
-                <button class="btn-guardar" onclick="login()">Entrar</button>
-            </div>
-        </div>
-
-        <div class="admin-form" id="admin-form">
-            <p style="color:green; margin-bottom:15px">✅ Sesión iniciada</p>
-            <h3 style="margin-bottom:15px; color:#b8860b">➕ Agregar producto</h3>
-            <input type="text" id="nuevo-nombre" placeholder="Nombre del producto">
-            <select id="nueva-categoria">
-                <option>Pantalones sastreros</option>
-                <option>Shorts sastreros</option>
-                <option>Básicas</option>
-                <option>Body</option>
-                <option>Sweaters</option>
-                <option>Conjuntos</option>
-                <option>Ropa de hombre</option>
-            </select>
-            <input type="number" id="nuevo-precio" placeholder="Precio">
-            <input type="text" id="nuevo-talle" placeholder="Talles (ej: S, M, L)">
-            <textarea id="nueva-desc" placeholder="Descripción" rows="3"></textarea>
-            <label style="font-size:13px"><input type="checkbox" id="es-oferta"> 🔥 Marcar como oferta</label>
-            <div class="modal-btns" style="margin-top:15px">
-                <button class="btn-cerrar" onclick="cerrarAdmin()">Cerrar</button>
-                <button class="btn-guardar" onclick="agregarProducto()">✅ Agregar</button>
-            </div>
-            <div class="separador"></div>
-            <h3 style="margin-bottom:15px; color:#b8860b">🗑️ Eliminar producto</h3>
-            <select id="eliminar-select"></select>
-            <div class="modal-btns" style="margin-top:10px">
-                <button class="btn-guardar" style="background:#e74c3c" onclick="eliminarProducto()">🗑️ Eliminar</button>
-            </div>
-            <div class="separador"></div>
-            <button class="btn-cerrar" onclick="logout()" style="width:100%; margin-top:5px">Cerrar sesión</button>
-        </div>
-    </div>
-</div>
-
 <script>
-    const USUARIO = 'bela';
-    const CLAVE = 'belastore2024';
-    let adminLogueado = false;
+    let sidebarAbierto = true;
     let carrito = [];
     let categoriaActiva = 'todas';
     let busquedaActiva = '';
 
-    let productos = JSON.parse(localStorage.getItem('bela-productos') || 'null') || [
+    const productos = [
         { nombre: "Pantalón sastrero negro", categoria: "Pantalones sastreros", precio: 15000, talle: "S, M, L", descripcion: "Pantalón sastrero recto, ideal para looks formales y casuales.", oferta: false },
         { nombre: "Short sastrero beige", categoria: "Shorts sastreros", precio: 12000, talle: "S, M, L", descripcion: "Short de tela sastrera, cómodo y elegante.", oferta: true },
         { nombre: "Remera básica blanca", categoria: "Básicas", precio: 8000, talle: "S, M, L, XL", descripcion: "Remera básica algodón, disponible en varios colores.", oferta: false },
@@ -336,8 +226,17 @@
         { nombre: "Remera hombre negra", categoria: "Ropa de hombre", precio: 9000, talle: "M, L, XL", descripcion: "Remera básica de algodón para hombre.", oferta: false },
     ];
 
-    function guardarProductos() {
-        localStorage.setItem('bela-productos', JSON.stringify(productos));
+    function toggleSidebar() {
+        const sidebar = document.getElementById('sidebar');
+        const contenido = document.getElementById('contenido');
+        sidebarAbierto = !sidebarAbierto;
+        if (sidebarAbierto) {
+            sidebar.classList.remove('cerrado');
+            contenido.classList.remove('expandido');
+        } else {
+            sidebar.classList.add('cerrado');
+            contenido.classList.add('expandido');
+        }
     }
 
     function mostrarProductos() {
@@ -401,76 +300,6 @@
         let items = carrito.map(p => `- ${p.nombre} ($${p.precio.toLocaleString()})`).join('\n');
         let mensaje = `Hola Bela Store! Quiero hacer un pedido:\n${items}\nTotal: $${total.toLocaleString()}`;
         window.open(`https://wa.me/3716507393?text=${encodeURIComponent(mensaje)}`, '_blank');
-    }
-
-    function abrirAdmin() {
-        document.getElementById('modal-admin').classList.add('active');
-        if (adminLogueado) mostrarFormAdmin();
-    }
-
-    function cerrarAdmin() {
-        document.getElementById('modal-admin').classList.remove('active');
-    }
-
-    function login() {
-        const u = document.getElementById('usuario-input').value;
-        const c = document.getElementById('clave-input').value;
-        if (u === USUARIO && c === CLAVE) {
-            adminLogueado = true;
-            mostrarFormAdmin();
-        } else {
-            alert('Usuario o contraseña incorrectos');
-        }
-    }
-
-    function logout() {
-        adminLogueado = false;
-        document.getElementById('login-form').classList.add('active');
-        document.getElementById('admin-form').classList.remove('active');
-        cerrarAdmin();
-    }
-
-    function mostrarFormAdmin() {
-        document.getElementById('login-form').classList.remove('active');
-        document.getElementById('admin-form').classList.add('active');
-        actualizarSelectEliminar();
-    }
-
-    function actualizarSelectEliminar() {
-        const sel = document.getElementById('eliminar-select');
-        sel.innerHTML = productos.map((p, i) => `<option value="${i}">${p.nombre}</option>`).join('');
-    }
-
-    function agregarProducto() {
-        const nombre = document.getElementById('nuevo-nombre').value;
-        const categoria = document.getElementById('nueva-categoria').value;
-        const precio = parseInt(document.getElementById('nuevo-precio').value);
-        const talle = document.getElementById('nuevo-talle').value;
-        const descripcion = document.getElementById('nueva-desc').value;
-        const oferta = document.getElementById('es-oferta').checked;
-
-        if (!nombre || !precio || !talle || !descripcion) { alert('Completá todos los campos'); return; }
-
-        productos.push({ nombre, categoria, precio, talle, descripcion, oferta });
-        guardarProductos();
-        mostrarProductos();
-        actualizarSelectEliminar();
-        alert(`✅ ${nombre} agregado!`);
-        document.getElementById('nuevo-nombre').value = '';
-        document.getElementById('nuevo-precio').value = '';
-        document.getElementById('nuevo-talle').value = '';
-        document.getElementById('nueva-desc').value = '';
-    }
-
-    function eliminarProducto() {
-        const idx = document.getElementById('eliminar-select').value;
-        if (confirm(`¿Eliminar ${productos[idx].nombre}?`)) {
-            productos.splice(idx, 1);
-            guardarProductos();
-            mostrarProductos();
-            actualizarSelectEliminar();
-            alert('✅ Producto eliminado');
-        }
     }
 
     mostrarProductos();
