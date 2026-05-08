@@ -122,8 +122,8 @@
             .banner h1 { font-size: 28px; }
             .contenido { margin-left: 0; }
             .sidebar { transform: translateX(-220px); }
-        }
-    </style>
+            .sidebar.abierto { transform: translateX(0); }
+}    </style>
 </head>
 <body>
 
@@ -360,12 +360,16 @@
     function buscar(v) { busquedaActiva = v; mostrarProductos(); }
 
     function toggleSidebar() {
-        sidebarAbierto = !sidebarAbierto;
-        document.getElementById('sidebar').classList.toggle('cerrado', !sidebarAbierto);
-        document.getElementById('contenido').classList.toggle('expandido', !sidebarAbierto);
+    sidebarAbierto = !sidebarAbierto;
+    const sidebar = document.getElementById('sidebar');
+    const contenido = document.getElementById('contenido');
+    if (window.innerWidth <= 768) {
+        sidebar.classList.toggle('abierto', sidebarAbierto);
+    } else {
+        sidebar.classList.toggle('cerrado', !sidebarAbierto);
+        contenido.classList.toggle('expandido', !sidebarAbierto);
     }
-
-    function agregarCarrito(i) {
+}    function agregarCarrito(i) {
         carrito.push(productos[i]);
         document.getElementById('carrito-count').textContent = carrito.length;
         alert(`✅ ${productos[i].nombre} agregado!`);
