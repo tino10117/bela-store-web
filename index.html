@@ -21,91 +21,50 @@
             box-shadow: 0 4px 20px rgba(0,0,0,0.3);
         }
         .header-left { display: flex; align-items: center; gap: 15px; }
-        .menu-toggle {
-            background: none; border: none; color: #d4af37;
-            font-size: 28px; cursor: pointer; padding: 5px;
-            transition: transform 0.3s;
-        }
-        .menu-toggle:hover { transform: scale(1.1); }
+        .menu-toggle { background: none; border: none; color: #d4af37; font-size: 28px; cursor: pointer; }
         .logo { font-size: 24px; font-weight: 700; color: #d4af37; letter-spacing: 2px; }
         .logo span { color: white; }
+        .header-right { display: flex; align-items: center; gap: 15px; }
         nav a { color: #d4af37; text-decoration: none; font-weight: 500; margin-left: 20px; transition: color 0.3s; }
         nav a:hover { color: white; }
+        .admin-btn { background: #d4af37; color: #1a1a1a; border: none; padding: 8px 16px; border-radius: 20px; font-weight: 700; cursor: pointer; transition: all 0.3s; font-size: 13px; }
+        .admin-btn:hover { background: #b8960b; }
 
-        .banner {
-            background: linear-gradient(135deg, #1a1a1a, #3d2b00);
-            padding: 70px 40px; text-align: center; animation: fadeIn 1.2s ease;
-        }
+        .banner { background: linear-gradient(135deg, #1a1a1a, #3d2b00); padding: 70px 40px; text-align: center; animation: fadeIn 1.2s ease; }
         .banner h1 { font-size: 48px; color: #d4af37; margin-bottom: 15px; letter-spacing: 3px; }
         .banner p { font-size: 18px; color: #ccc; margin-bottom: 30px; }
-        .btn-gold {
-            background: #d4af37; color: #1a1a1a; border: none; padding: 14px 40px;
-            border-radius: 30px; font-size: 16px; font-weight: 700; cursor: pointer;
-            transition: all 0.3s; text-decoration: none; display: inline-block;
-        }
+        .btn-gold { background: #d4af37; color: #1a1a1a; border: none; padding: 14px 40px; border-radius: 30px; font-size: 16px; font-weight: 700; cursor: pointer; transition: all 0.3s; text-decoration: none; display: inline-block; }
         .btn-gold:hover { background: #b8960b; transform: translateY(-2px); }
 
         .separador { height: 2px; background: linear-gradient(to right, transparent, #d4af37, transparent); margin: 20px 0; }
 
-        .main-layout { display: flex; min-height: 60vh; position: relative; }
+        .main-layout { display: flex; min-height: 60vh; }
 
-        /* SIDEBAR */
         .sidebar {
-            width: 220px;
-            background: #1a1a1a;
-            padding: 25px 15px;
-            position: fixed;
-            top: 60px;
-            left: 0;
-            height: calc(100vh - 60px);
-            overflow-y: auto;
-            z-index: 50;
-            transition: transform 0.3s ease;
+            width: 220px; background: #1a1a1a; padding: 25px 15px;
+            position: fixed; top: 60px; left: 0;
+            height: calc(100vh - 60px); overflow-y: auto;
+            z-index: 50; transition: transform 0.3s ease;
             box-shadow: 4px 0 20px rgba(0,0,0,0.3);
         }
         .sidebar.cerrado { transform: translateX(-220px); }
         .sidebar h3 { color: #d4af37; font-size: 13px; text-transform: uppercase; letter-spacing: 2px; margin-bottom: 20px; }
-        .cat-btn {
-            display: block; width: 100%; text-align: left;
-            background: transparent; border: 1px solid #333; color: #ccc;
-            padding: 11px 14px; border-radius: 10px; cursor: pointer;
-            font-weight: 500; margin-bottom: 8px; transition: all 0.3s; font-size: 13px;
-        }
+        .cat-btn { display: block; width: 100%; text-align: left; background: transparent; border: 1px solid #333; color: #ccc; padding: 11px 14px; border-radius: 10px; cursor: pointer; font-weight: 500; margin-bottom: 8px; transition: all 0.3s; font-size: 13px; }
         .cat-btn:hover, .cat-btn.active { background: #d4af37; color: #1a1a1a; border-color: #d4af37; font-weight: 700; }
 
-        .contenido {
-            flex: 1;
-            padding: 25px;
-            margin-left: 220px;
-            transition: margin-left 0.3s ease;
-        }
+        .contenido { flex: 1; padding: 25px; margin-left: 220px; transition: margin-left 0.3s ease; }
         .contenido.expandido { margin-left: 0; }
 
+        .seccion-titulo { font-size: 22px; font-weight: 700; color: #b8860b; margin-bottom: 20px; display: flex; align-items: center; gap: 10px; }
+
         .buscador-wrap { margin-bottom: 20px; }
-        .buscador {
-            width: 100%; padding: 12px 20px;
-            border: 2px solid #d4af37; border-radius: 30px;
-            font-size: 15px; outline: none; background: white; color: #333;
-        }
+        .buscador { width: 100%; padding: 12px 20px; border: 2px solid #d4af37; border-radius: 30px; font-size: 15px; outline: none; background: white; color: #333; }
         .buscador:focus { box-shadow: 0 0 0 3px rgba(212,175,55,0.2); }
 
-        .productos-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));
-            gap: 20px;
-        }
-        .tarjeta {
-            background: white; border-radius: 16px; overflow: hidden;
-            box-shadow: 0 4px 20px rgba(0,0,0,0.08); transition: all 0.3s ease;
-            border: 1px solid #f0e0b0;
-        }
+        .productos-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(230px, 1fr)); gap: 20px; }
+        .tarjeta { background: white; border-radius: 16px; overflow: hidden; box-shadow: 0 4px 20px rgba(0,0,0,0.08); transition: all 0.3s ease; border: 1px solid #f0e0b0; }
         .tarjeta:hover { transform: translateY(-6px); box-shadow: 0 16px 40px rgba(212,175,55,0.2); }
-        .tarjeta-img {
-            width: 100%; height: 200px;
-            background: linear-gradient(135deg, #f5e6c8, #fff8e7);
-            display: flex; align-items: center; justify-content: center; font-size: 55px;
-            overflow: hidden;
-        }
+        .tarjeta-img { width: 100%; height: 220px; background: linear-gradient(135deg, #f5e6c8, #fff8e7); display: flex; align-items: center; justify-content: center; font-size: 55px; overflow: hidden; }
         .tarjeta-img img { width: 100%; height: 100%; object-fit: cover; }
         .tarjeta-body { padding: 15px; }
         .tarjeta-categoria { font-size: 11px; color: #aaa; text-transform: uppercase; letter-spacing: 1px; }
@@ -114,26 +73,42 @@
         .tarjeta-talle { font-size: 12px; color: #888; margin-bottom: 10px; }
         .tarjeta-precio { font-size: 20px; font-weight: 700; color: #b8860b; margin-bottom: 10px; }
         .oferta-badge { background: #e74c3c; color: white; font-size: 10px; font-weight: 700; padding: 2px 8px; border-radius: 20px; display: inline-block; margin-bottom: 5px; }
+        .inicio-badge { background: #d4af37; color: #1a1a1a; font-size: 10px; font-weight: 700; padding: 2px 8px; border-radius: 20px; display: inline-block; margin-bottom: 5px; margin-left: 4px; }
         .tarjeta-btns { display: flex; gap: 7px; }
         .btn-agregar { flex: 1; background: #d4af37; color: white; border: none; padding: 9px; border-radius: 8px; font-weight: 600; cursor: pointer; transition: all 0.3s; font-size: 12px; }
         .btn-agregar:hover { background: #b8960b; }
         .btn-ver { flex: 1; background: white; color: #d4af37; border: 2px solid #d4af37; padding: 9px; border-radius: 8px; font-weight: 600; cursor: pointer; transition: all 0.3s; font-size: 12px; }
         .btn-ver:hover { background: #d4af37; color: white; }
 
-        .carrito-float {
-            position: fixed; bottom: 30px; right: 30px;
-            background: #d4af37; color: white; border: none;
-            width: 58px; height: 58px; border-radius: 50%; font-size: 22px;
-            cursor: pointer; box-shadow: 0 4px 20px rgba(212,175,55,0.4);
-            transition: all 0.3s; z-index: 200;
-        }
+        .carrito-float { position: fixed; bottom: 30px; right: 30px; background: #d4af37; color: white; border: none; width: 58px; height: 58px; border-radius: 50%; font-size: 22px; cursor: pointer; box-shadow: 0 4px 20px rgba(212,175,55,0.4); transition: all 0.3s; z-index: 200; }
         .carrito-float:hover { transform: scale(1.1); }
-        .carrito-count {
-            position: absolute; top: -5px; right: -5px;
-            background: #e74c3c; color: white; border-radius: 50%;
-            width: 20px; height: 20px; font-size: 11px;
-            display: flex; align-items: center; justify-content: center; font-weight: 700;
-        }
+        .carrito-count { position: absolute; top: -5px; right: -5px; background: #e74c3c; color: white; border-radius: 50%; width: 20px; height: 20px; font-size: 11px; display: flex; align-items: center; justify-content: center; font-weight: 700; }
+
+        /* MODAL */
+        .modal-overlay { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.7); z-index: 300; align-items: center; justify-content: center; }
+        .modal-overlay.active { display: flex; }
+        .modal { background: white; border-radius: 20px; padding: 30px; width: 95%; max-width: 540px; max-height: 88vh; overflow-y: auto; }
+        .modal h2 { color: #b8860b; margin-bottom: 20px; font-size: 20px; }
+        .modal h3 { color: #b8860b; margin-bottom: 12px; font-size: 16px; margin-top: 5px; }
+        .modal input, .modal textarea, .modal select { width: 100%; padding: 11px; margin-bottom: 10px; border: 2px solid #f0e0b0; border-radius: 10px; font-size: 13px; outline: none; }
+        .modal input:focus, .modal textarea:focus { border-color: #d4af37; }
+        .check-row { display: flex; gap: 20px; margin-bottom: 12px; font-size: 13px; align-items: center; }
+        .modal-btns { display: flex; gap: 10px; margin-top: 12px; }
+        .btn-cerrar { background: #eee; color: #333; border: none; padding: 11px 20px; border-radius: 10px; cursor: pointer; font-weight: 600; font-size: 13px; }
+        .btn-guardar { background: #d4af37; color: white; border: none; padding: 11px 20px; border-radius: 10px; cursor: pointer; font-weight: 700; flex: 1; font-size: 13px; }
+        .btn-rojo { background: #e74c3c; color: white; border: none; padding: 11px 20px; border-radius: 10px; cursor: pointer; font-weight: 700; flex: 1; font-size: 13px; }
+        .login-form { display: none; }
+        .login-form.active { display: block; }
+        .admin-form { display: none; }
+        .admin-form.active { display: block; }
+        .hint { font-size: 11px; color: #aaa; margin-top: -8px; margin-bottom: 10px; }
+
+        /* DETALLE PRODUCTO */
+        .detalle-overlay { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.7); z-index: 300; align-items: center; justify-content: center; }
+        .detalle-overlay.active { display: flex; }
+        .detalle-modal { background: white; border-radius: 20px; padding: 30px; width: 95%; max-width: 600px; max-height: 88vh; overflow-y: auto; }
+        .detalle-img { width: 100%; height: 300px; object-fit: cover; border-radius: 12px; margin-bottom: 20px; background: linear-gradient(135deg, #f5e6c8, #fff8e7); display: flex; align-items: center; justify-content: center; font-size: 80px; overflow: hidden; }
+        .detalle-img img { width: 100%; height: 100%; object-fit: cover; }
 
         .contacto { background: linear-gradient(135deg, #1a1a1a, #3d2b00); padding: 50px 40px; text-align: center; color: white; }
         .contacto h2 { color: #d4af37; font-size: 30px; margin-bottom: 20px; }
@@ -157,11 +132,14 @@
         <button class="menu-toggle" onclick="toggleSidebar()">☰</button>
         <div class="logo">🛍️ BELA <span>STORE</span></div>
     </div>
-    <nav>
-        <a href="#inicio">Inicio</a>
-        <a href="#productos">Productos</a>
-        <a href="#contacto">Contacto</a>
-    </nav>
+    <div class="header-right">
+        <nav>
+            <a href="#inicio">Inicio</a>
+            <a href="#productos">Productos</a>
+            <a href="#contacto">Contacto</a>
+        </nav>
+        <button class="admin-btn" onclick="abrirAdmin()">🔐 Admin</button>
+    </div>
 </header>
 
 <div class="banner" id="inicio">
@@ -175,7 +153,7 @@
 <div class="main-layout" id="productos">
     <div class="sidebar" id="sidebar">
         <h3>📂 Categorías</h3>
-        <button class="cat-btn active" onclick="filtrar('todas', this)">🏠 Todas</button>
+        <button class="cat-btn active" onclick="filtrar('inicio', this)">🏠 Inicio</button>
         <button class="cat-btn" onclick="filtrar('Pantalones sastreros', this)">👖 Pantalones</button>
         <button class="cat-btn" onclick="filtrar('Shorts sastreros', this)">🩳 Shorts</button>
         <button class="cat-btn" onclick="filtrar('Básicas', this)">👕 Básicas</button>
@@ -183,12 +161,14 @@
         <button class="cat-btn" onclick="filtrar('Sweaters', this)">🧥 Sweaters</button>
         <button class="cat-btn" onclick="filtrar('Conjuntos', this)">👗 Conjuntos</button>
         <button class="cat-btn" onclick="filtrar('Ropa de hombre', this)">👔 Hombre</button>
+        <button class="cat-btn" onclick="filtrar('todas', this)">🔍 Todos</button>
     </div>
 
     <div class="contenido" id="contenido">
         <div class="buscador-wrap">
             <input class="buscador" type="text" placeholder="🔍 Buscá una prenda..." oninput="buscar(this.value)">
         </div>
+        <div class="seccion-titulo" id="seccion-titulo">🏠 Inicio</div>
         <div class="productos-grid" id="grid-productos"></div>
     </div>
 </div>
@@ -208,40 +188,136 @@
     🛒<span class="carrito-count" id="carrito-count">0</span>
 </button>
 
-<script>
-    let sidebarAbierto = true;
-    let carrito = [];
-    let categoriaActiva = 'todas';
-    let busquedaActiva = '';
+<!-- MODAL ADMIN -->
+<div class="modal-overlay" id="modal-admin">
+    <div class="modal">
+        <h2>🔐 Panel Admin</h2>
+        <div class="login-form active" id="login-form">
+            <input type="text" id="usuario-input" placeholder="Usuario">
+            <input type="password" id="clave-input" placeholder="Contraseña">
+            <div class="modal-btns">
+                <button class="btn-cerrar" onclick="cerrarAdmin()">Cancelar</button>
+                <button class="btn-guardar" onclick="login()">Entrar</button>
+            </div>
+        </div>
+        <div class="admin-form" id="admin-form">
+            <p style="color:green; margin-bottom:15px; font-size:13px">✅ Sesión iniciada como Admin</p>
 
-    const productos = [
-        { nombre: "Pantalón sastrero negro", categoria: "Pantalones sastreros", precio: 15000, talle: "S, M, L", descripcion: "Pantalón sastrero recto, ideal para looks formales y casuales.", oferta: false },
-        { nombre: "Short sastrero beige", categoria: "Shorts sastreros", precio: 12000, talle: "S, M, L", descripcion: "Short de tela sastrera, cómodo y elegante.", oferta: true },
-        { nombre: "Remera básica blanca", categoria: "Básicas", precio: 8000, talle: "S, M, L, XL", descripcion: "Remera básica algodón, disponible en varios colores.", oferta: false },
-        { nombre: "Body negro", categoria: "Body", precio: 10000, talle: "S, M, L", descripcion: "Body ajustado, perfecto para combinar con cualquier prenda.", oferta: false },
-        { nombre: "Sweater oversized rosa", categoria: "Sweaters", precio: 18000, talle: "Único", descripcion: "Sweater oversize súper cómodo para el invierno.", oferta: true },
-        { nombre: "Conjunto sastrero gris", categoria: "Conjuntos", precio: 25000, talle: "S, M, L", descripcion: "Conjunto de pantalón y blazer sastrero a juego.", oferta: false },
-        { nombre: "Buzo hombre gris", categoria: "Ropa de hombre", precio: 16000, talle: "M, L, XL", descripcion: "Buzo de algodón frizado, cómodo y abrigado.", oferta: false },
-        { nombre: "Sweater hombre azul", categoria: "Ropa de hombre", precio: 17000, talle: "M, L, XL", descripcion: "Sweater de hilo, ideal para el frío.", oferta: false },
-        { nombre: "Remera hombre negra", categoria: "Ropa de hombre", precio: 9000, talle: "M, L, XL", descripcion: "Remera básica de algodón para hombre.", oferta: false },
+            <h3>➕ Agregar producto</h3>
+            <input type="text" id="nuevo-nombre" placeholder="Nombre del producto">
+            <select id="nueva-categoria">
+                <option>Pantalones sastreros</option>
+                <option>Shorts sastreros</option>
+                <option>Básicas</option>
+                <option>Body</option>
+                <option>Sweaters</option>
+                <option>Conjuntos</option>
+                <option>Ropa de hombre</option>
+            </select>
+            <input type="number" id="nuevo-precio" placeholder="Precio (ej: 15000)">
+            <input type="text" id="nuevo-talle" placeholder="Talles disponibles (ej: S, M, L)">
+            <textarea id="nueva-desc" placeholder="Descripción del producto" rows="2"></textarea>
+            <input type="text" id="nueva-foto" placeholder="🔗 Link de la foto (de Instagram o Google Fotos)">
+            <p class="hint">Subí la foto a Instagram → copiá el link → pegalo acá</p>
+            <div class="check-row">
+                <label><input type="checkbox" id="es-oferta"> 🔥 Oferta</label>
+                <label><input type="checkbox" id="es-inicio"> ⭐ Mostrar en inicio</label>
+            </div>
+            <div class="modal-btns">
+                <button class="btn-cerrar" onclick="cerrarAdmin()">Cerrar</button>
+                <button class="btn-guardar" onclick="agregarProducto()">✅ Agregar</button>
+            </div>
+
+            <div class="separador"></div>
+            <h3>✏️ Editar producto</h3>
+            <select id="editar-select" onchange="cargarEditar()"></select>
+            <input type="number" id="editar-precio" placeholder="Nuevo precio">
+            <input type="text" id="editar-foto" placeholder="Nuevo link de foto">
+            <div class="check-row">
+                <label><input type="checkbox" id="editar-oferta"> 🔥 Oferta</label>
+                <label><input type="checkbox" id="editar-inicio"> ⭐ En inicio</label>
+            </div>
+            <div class="modal-btns">
+                <button class="btn-guardar" onclick="editarProducto()">💾 Guardar cambios</button>
+            </div>
+
+            <div class="separador"></div>
+            <h3>🗑️ Eliminar producto</h3>
+            <select id="eliminar-select"></select>
+            <div class="modal-btns" style="margin-top:10px">
+                <button class="btn-cerrar" onclick="cerrarAdmin()">Cerrar</button>
+                <button class="btn-rojo" onclick="eliminarProducto()">🗑️ Eliminar</button>
+            </div>
+
+            <div class="separador"></div>
+            <button class="btn-cerrar" onclick="logout()" style="width:100%">Cerrar sesión</button>
+        </div>
+    </div>
+</div>
+
+<!-- MODAL DETALLE -->
+<div class="detalle-overlay" id="detalle-overlay">
+    <div class="detalle-modal">
+        <div class="detalle-img" id="detalle-img">👗</div>
+        <div id="detalle-categoria" style="font-size:12px; color:#aaa; text-transform:uppercase; letter-spacing:1px"></div>
+        <h2 id="detalle-nombre" style="color:#1a1a1a; margin:8px 0"></h2>
+        <p id="detalle-desc" style="color:#666; font-size:14px; margin-bottom:10px"></p>
+        <p id="detalle-talle" style="color:#888; font-size:13px; margin-bottom:10px"></p>
+        <div id="detalle-precio" style="font-size:26px; font-weight:700; color:#b8860b; margin-bottom:15px"></div>
+        <div style="background:#fff8e7; border-radius:12px; padding:15px; margin-bottom:15px; text-align:center; border:1px solid #d4af37">
+            <p style="font-weight:700; color:#b8860b">💳 Método de pago</p>
+            <p style="color:#555; font-size:13px">💙 Mercado Pago — Te enviamos el link por WhatsApp</p>
+        </div>
+        <div style="display:flex; gap:10px">
+            <button class="btn-agregar" style="flex:1; padding:12px; font-size:14px" onclick="agregarDesdeDetalle()">🛒 Agregar al carrito</button>
+            <button class="btn-ver" style="flex:1; padding:12px; font-size:14px" onclick="cerrarDetalle()">← Volver</button>
+        </div>
+    </div>
+</div>
+
+<script>
+    const USUARIO = 'bela';
+    const CLAVE = 'belastore2024';
+    let adminLogueado = false;
+    let carrito = [];
+    let categoriaActiva = 'inicio';
+    let busquedaActiva = '';
+    let sidebarAbierto = true;
+    let productoDetalleActual = null;
+
+    let productos = JSON.parse(localStorage.getItem('bela-productos') || 'null') || [
+        { nombre: "Pantalón sastrero negro", categoria: "Pantalones sastreros", precio: 15000, talle: "S, M, L", descripcion: "Pantalón sastrero recto, ideal para looks formales y casuales.", foto: "", oferta: false, inicio: true },
+        { nombre: "Short sastrero beige", categoria: "Shorts sastreros", precio: 12000, talle: "S, M, L", descripcion: "Short de tela sastrera, cómodo y elegante.", foto: "", oferta: true, inicio: false },
+        { nombre: "Remera básica blanca", categoria: "Básicas", precio: 8000, talle: "S, M, L, XL", descripcion: "Remera básica algodón, disponible en varios colores.", foto: "", oferta: false, inicio: true },
+        { nombre: "Body negro", categoria: "Body", precio: 10000, talle: "S, M, L", descripcion: "Body ajustado, perfecto para combinar con cualquier prenda.", foto: "", oferta: false, inicio: false },
+        { nombre: "Sweater oversized rosa", categoria: "Sweaters", precio: 18000, talle: "Único", descripcion: "Sweater oversize súper cómodo para el invierno.", foto: "", oferta: true, inicio: true },
+        { nombre: "Conjunto sastrero gris", categoria: "Conjuntos", precio: 25000, talle: "S, M, L", descripcion: "Conjunto de pantalón y blazer sastrero a juego.", foto: "", oferta: false, inicio: false },
+        { nombre: "Buzo hombre gris", categoria: "Ropa de hombre", precio: 16000, talle: "M, L, XL", descripcion: "Buzo de algodón frizado, cómodo y abrigado.", foto: "", oferta: false, inicio: false },
+        { nombre: "Sweater hombre azul", categoria: "Ropa de hombre", precio: 17000, talle: "M, L, XL", descripcion: "Sweater de hilo, ideal para el frío.", foto: "", oferta: false, inicio: false },
+        { nombre: "Remera hombre negra", categoria: "Ropa de hombre", precio: 9000, talle: "M, L, XL", descripcion: "Remera básica de algodón para hombre.", foto: "", oferta: false, inicio: false },
     ];
 
-    function toggleSidebar() {
-        const sidebar = document.getElementById('sidebar');
-        const contenido = document.getElementById('contenido');
-        sidebarAbierto = !sidebarAbierto;
-        if (sidebarAbierto) {
-            sidebar.classList.remove('cerrado');
-            contenido.classList.remove('expandido');
-        } else {
-            sidebar.classList.add('cerrado');
-            contenido.classList.add('expandido');
-        }
+    function guardar() { localStorage.setItem('bela-productos', JSON.stringify(productos)); }
+
+    function imgHTML(foto) {
+        if (foto) return `<img src="${foto}" onerror="this.parentElement.innerHTML='👗'">`;
+        return '👗';
     }
 
     function mostrarProductos() {
         let lista = productos;
-        if (categoriaActiva !== 'todas') lista = lista.filter(p => p.categoria === categoriaActiva);
+        const titulo = document.getElementById('seccion-titulo');
+
+        if (categoriaActiva === 'inicio') {
+            lista = productos.filter(p => p.inicio);
+            titulo.textContent = '🏠 Destacados en Inicio';
+        } else if (categoriaActiva === 'todas') {
+            titulo.textContent = '🔍 Todos los productos';
+        } else {
+            lista = productos.filter(p => p.categoria === categoriaActiva);
+            titulo.textContent = categoriaActiva;
+        }
+
         if (busquedaActiva) lista = lista.filter(p => p.nombre.toLowerCase().includes(busquedaActiva.toLowerCase()));
 
         const grid = document.getElementById('grid-productos');
@@ -250,13 +326,14 @@
             grid.innerHTML = '<p style="color:#888; grid-column:1/-1; text-align:center; padding:40px">No se encontraron productos.</p>';
             return;
         }
-        lista.forEach((p, i) => {
+        lista.forEach(p => {
             const idx = productos.indexOf(p);
             grid.innerHTML += `
                 <div class="tarjeta">
-                    <div class="tarjeta-img">👗</div>
+                    <div class="tarjeta-img">${imgHTML(p.foto)}</div>
                     <div class="tarjeta-body">
                         ${p.oferta ? '<span class="oferta-badge">🔥 OFERTA</span>' : ''}
+                        ${p.inicio ? '<span class="inicio-badge">⭐ DESTACADO</span>' : ''}
                         <div class="tarjeta-categoria">${p.categoria}</div>
                         <div class="tarjeta-nombre">${p.nombre}</div>
                         <div class="tarjeta-desc">${p.descripcion}</div>
@@ -271,35 +348,136 @@
         });
     }
 
-    function filtrar(categoria, btn) {
-        categoriaActiva = categoria;
+    function filtrar(cat, btn) {
+        categoriaActiva = cat;
+        busquedaActiva = '';
+        document.querySelector('.buscador').value = '';
         document.querySelectorAll('.cat-btn').forEach(b => b.classList.remove('active'));
         btn.classList.add('active');
         mostrarProductos();
     }
 
-    function buscar(valor) {
-        busquedaActiva = valor;
-        mostrarProductos();
+    function buscar(v) { busquedaActiva = v; mostrarProductos(); }
+
+    function toggleSidebar() {
+        sidebarAbierto = !sidebarAbierto;
+        document.getElementById('sidebar').classList.toggle('cerrado', !sidebarAbierto);
+        document.getElementById('contenido').classList.toggle('expandido', !sidebarAbierto);
     }
 
     function agregarCarrito(i) {
         carrito.push(productos[i]);
         document.getElementById('carrito-count').textContent = carrito.length;
-        alert(`✅ ${productos[i].nombre} agregado al carrito!`);
+        alert(`✅ ${productos[i].nombre} agregado!`);
     }
 
     function verProducto(i) {
         const p = productos[i];
-        alert(`${p.nombre}\n\n${p.descripcion}\n\nTalles: ${p.talle}\nPrecio: $${p.precio.toLocaleString()}`);
+        productoDetalleActual = i;
+        const img = document.getElementById('detalle-img');
+        img.innerHTML = p.foto ? `<img src="${p.foto}" onerror="this.parentElement.innerHTML='👗'" style="width:100%;height:100%;object-fit:cover">` : '👗';
+        document.getElementById('detalle-categoria').textContent = p.categoria;
+        document.getElementById('detalle-nombre').textContent = p.nombre;
+        document.getElementById('detalle-desc').textContent = p.descripcion;
+        document.getElementById('detalle-talle').textContent = `📏 Talles: ${p.talle}`;
+        document.getElementById('detalle-precio').textContent = `$${p.precio.toLocaleString()}`;
+        document.getElementById('detalle-overlay').classList.add('active');
+    }
+
+    function cerrarDetalle() { document.getElementById('detalle-overlay').classList.remove('active'); }
+
+    function agregarDesdeDetalle() {
+        if (productoDetalleActual !== null) {
+            agregarCarrito(productoDetalleActual);
+            cerrarDetalle();
+        }
     }
 
     function verCarrito() {
         if (carrito.length === 0) { alert('Tu carrito está vacío'); return; }
-        let total = carrito.reduce((sum, p) => sum + p.precio, 0);
+        let total = carrito.reduce((s, p) => s + p.precio, 0);
         let items = carrito.map(p => `- ${p.nombre} ($${p.precio.toLocaleString()})`).join('\n');
-        let mensaje = `Hola Bela Store! Quiero hacer un pedido:\n${items}\nTotal: $${total.toLocaleString()}`;
-        window.open(`https://wa.me/3716507393?text=${encodeURIComponent(mensaje)}`, '_blank');
+        window.open(`https://wa.me/3716507393?text=${encodeURIComponent(`Hola Bela Store! Quiero hacer un pedido:\n${items}\nTotal: $${total.toLocaleString()}`)}`, '_blank');
+    }
+
+    function abrirAdmin() { document.getElementById('modal-admin').classList.add('active'); if (adminLogueado) mostrarFormAdmin(); }
+    function cerrarAdmin() { document.getElementById('modal-admin').classList.remove('active'); }
+
+    function login() {
+        if (document.getElementById('usuario-input').value === USUARIO && document.getElementById('clave-input').value === CLAVE) {
+            adminLogueado = true; mostrarFormAdmin();
+        } else { alert('Usuario o contraseña incorrectos'); }
+    }
+
+    function logout() { adminLogueado = false; document.getElementById('login-form').classList.add('active'); document.getElementById('admin-form').classList.remove('active'); cerrarAdmin(); }
+
+    function mostrarFormAdmin() {
+        document.getElementById('login-form').classList.remove('active');
+        document.getElementById('admin-form').classList.add('active');
+        actualizarSelects();
+    }
+
+    function actualizarSelects() {
+        const opts = productos.map((p, i) => `<option value="${i}">${p.nombre}</option>`).join('');
+        document.getElementById('eliminar-select').innerHTML = opts;
+        document.getElementById('editar-select').innerHTML = opts;
+        cargarEditar();
+    }
+
+    function cargarEditar() {
+        const i = document.getElementById('editar-select').value;
+        const p = productos[i];
+        if (!p) return;
+        document.getElementById('editar-precio').value = p.precio;
+        document.getElementById('editar-foto').value = p.foto || '';
+        document.getElementById('editar-oferta').checked = p.oferta;
+        document.getElementById('editar-inicio').checked = p.inicio;
+    }
+
+    function editarProducto() {
+        const i = document.getElementById('editar-select').value;
+        const precio = parseInt(document.getElementById('editar-precio').value);
+        const foto = document.getElementById('editar-foto').value;
+        if (precio) productos[i].precio = precio;
+        productos[i].foto = foto;
+        productos[i].oferta = document.getElementById('editar-oferta').checked;
+        productos[i].inicio = document.getElementById('editar-inicio').checked;
+        guardar();
+        mostrarProductos();
+        alert('✅ Producto actualizado!');
+    }
+
+    function agregarProducto() {
+        const nombre = document.getElementById('nuevo-nombre').value;
+        const categoria = document.getElementById('nueva-categoria').value;
+        const precio = parseInt(document.getElementById('nuevo-precio').value);
+        const talle = document.getElementById('nuevo-talle').value;
+        const descripcion = document.getElementById('nueva-desc').value;
+        const foto = document.getElementById('nueva-foto').value;
+        const oferta = document.getElementById('es-oferta').checked;
+        const inicio = document.getElementById('es-inicio').checked;
+        if (!nombre || !precio || !talle || !descripcion) { alert('Completá todos los campos'); return; }
+        productos.push({ nombre, categoria, precio, talle, descripcion, foto, oferta, inicio });
+        guardar();
+        mostrarProductos();
+        actualizarSelects();
+        alert(`✅ ${nombre} agregado!`);
+        document.getElementById('nuevo-nombre').value = '';
+        document.getElementById('nuevo-precio').value = '';
+        document.getElementById('nuevo-talle').value = '';
+        document.getElementById('nueva-desc').value = '';
+        document.getElementById('nueva-foto').value = '';
+    }
+
+    function eliminarProducto() {
+        const i = document.getElementById('eliminar-select').value;
+        if (confirm(`¿Eliminar ${productos[i].nombre}?`)) {
+            productos.splice(i, 1);
+            guardar();
+            mostrarProductos();
+            actualizarSelects();
+            alert('✅ Eliminado');
+        }
     }
 
     mostrarProductos();
