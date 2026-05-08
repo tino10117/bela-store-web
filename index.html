@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bela Store</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Poppins', sans-serif; }
+        
+        body { background: #fff9f0; color: #333; }
+        
+        /* HEADER */
+        header {
+            background: linear-gradient(135deg, #1a1a1a, #2d2d2d);
+            padding: 20px 40px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+        }
+        .logo { 
+            font-size: 28px; 
+            font-weight: 700; 
+            color: #d4af37;
+            letter-spacing: 2px;
+        }
+        .logo span { color: white; }
+        nav a {
+            color: #d4af37;
+            text-decoration: none;
+            margin-left: 30px;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+        nav a:hover { color: white; }
+
+        /* BANNER */
+        .banner {
+            background: linear-gradient(135deg, #1a1a1a, #3d2b00);
+            padding: 80px 40px;
+            text-align: center;
+            animation: fadeIn 1.2s ease;
+        }
+        .banner h1 {
+            font-size: 52px;
+            color: #d4af37;
+            margin-bottom: 15px;
+            letter-spacing: 3px;
+        }
+        .banner p {
+            font-size: 18px;
+            color: #ccc;
+            margin-bottom: 30px;
+        }
+        .btn-gold {
+            background: #d4af37;
+            color: #1a1a1a;
+            border: none;
+            padding: 14px 40px;
+            border-radius: 30px;
+            font-size: 16px;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.3s;
+            text-decoration: none;
+            display: inline-block;
+        }
+        .btn-gold:hover { background: #b8960b; transform: translateY(-2px); }
+
+        /* SEPARADOR */
+        .separador {
+            height: 2px;
+            background: linear-gradient(to right, transparent, #d4af37, transparent);
+            margin: 40px 0;
+        }
+
+        /* CATEGORIAS */
+        .categorias {
+            display: flex;
+            gap: 12px;
+            padding: 30px 40px;
+            overflow-x: auto;
+            background: white;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+        }
+        .cat-btn {
+            background: white;
+            border: 2px solid #d4af37;
+            color: #b8860b;
+            padding: 10px 20px;
+            border-radius: 30px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: all 0.3s;
+            white-space: nowrap;
+        }
+        .cat-btn:hover, .cat-btn.active {
+            background: #d4af37;
+            color: white;
+        }
+
+        /* PRODUCTOS */
+        .productos-section { padding: 40px; }
+        .productos-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 30px;
+        }
+        .tarjeta {
+            background: white;
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+            transition: all 0.3s ease;
+            border: 1px solid #f0e0b0;
+        }
+        .tarjeta:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 16px 40px rgba(212,175,55,0.2);
+        }
+        .tarjeta-img {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+            background: linear-gradient(135deg, #f5e6c8, #fff8e7);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 60px;
+        }
+        .tarjeta-img img { width: 100%; height: 100%; object-fit: cover; }
+        .tarjeta-body { padding: 20px; }
+        .tarjeta-categoria { font-size: 12px; color: #aaa; text-transform: uppercase; letter-spacing: 1px; }
+        .tarjeta-nombre { font-size: 18px; font-weight: 700; color: #1a1a1a; margin: 8px 0; }
+        .tarjeta-desc { font-size: 14px; color: #666; margin-bottom: 10px; }
+        .tarjeta-talle { font-size: 13px; color: #888; margin-bottom: 15px; }
+        .tarjeta-precio { font-size: 24px; font-weight: 700; color: #b8860b; margin-bottom: 15px; }
+        .oferta-badge {
+            background: #e74c3c;
+            color: white;
+            font-size: 11px;
+            font-weight: 700;
+            padding: 3px 10px;
+            border-radius: 20px;
+            display: inline-block;
+            margin-bottom: 8px;
+        }
+        .tarjeta-btns { display: flex; gap: 10px; }
+        .btn-agregar {
+            flex: 1;
+            background: #d4af37;
+            color: white;
+            border: none;
+            padding: 12px;
+            border-radius: 10px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        .btn-agregar:hover { background: #b8960b; }
+        .btn-ver {
+            flex: 1;
+            background: white;
+            color: #d4af37;
+            border: 2px solid #d4af37;
+            padding: 12px;
+            border-radius: 10px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        .btn-ver:hover { background: #d4af37; color: white; }
+
+        /* CARRITO */
+        .carrito-float {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background: #d4af37;
+            color: white;
+            border: none;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            font-size: 24px;
+            cursor: pointer;
+            box-shadow: 0 4px 20px rgba(212,175,55,0.4);
+            transition: all 0.3s;
+            z-index: 200;
+        }
+        .carrito-float:hover { transform: scale(1.1); }
+        .carrito-count {
+            position: absolute;
+            top: -5px;
+            right: -5px;
+            background: #e74c3c;
+            color: white;
+            border-radius: 50%;
+            width: 22px;
+            height: 22px;
+            font-size: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+        }
+
+        /* CONTACTO */
+        .contacto {
+            background: linear-gradient(135deg, #1a1a1a, #3d2b00);
+            padding: 60px 40px;
+            text-align: center;
+            color: white;
+        }
+        .contacto h2 { color: #d4af37; font-size: 32px; margin-bottom: 20px; }
+        .contacto p { color: #ccc; font-size: 16px; margin: 8px 0; }
+        .btn-whatsapp {
+            display: inline-block;
+            margin-top: 20px;
+            background: #25D366;
+            color: white;
+            padding: 14px 40px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 16px;
+            transition: all 0.3s;
+        }
+        .btn-whatsapp:hover { background: #1da851; transform: translateY(-2px); }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(-20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* RESPONSIVE */
+        @media (max-width: 768px) {
+            .banner h1 { font-size: 32px; }
+            .productos-grid { grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); }
+            nav { display: none; }
+        }
+    </style>
+</head>
+<body>
+
+<!-- HEADER -->
+<header>
+    <div class="logo">🛍️ BELA <span>STORE</span></div>
+    <nav>
+        <a href="#inicio">Inicio</a>
+        <a href="#productos">Productos</a>
+        <a href="#contacto">Contacto</a>
+    </nav>
+</header>
+
+<!-- BANNER -->
+<div class="banner" id="inicio">
+    <h1>✨ Nueva Colección</h1>
+    <p>Moda femenina y masculina • Envíos a todo el país</p>
+    <a href="#productos" class="btn-gold">Ver colección</a>
+</div>
+
+<div class="separador"></div>
+
+<!-- CATEGORIAS -->
+<div class="categorias">
+    <button class="cat-btn active" onclick="filtrar('todas')">🏠 Todas</button>
+    <button class="cat-btn" onclick="filtrar('Pantalones sastreros')">👖 Pantalones</button>
+    <button class="cat-btn" onclick="filtrar('Shorts sastreros')">🩳 Shorts</button>
+    <button class="cat-btn" onclick="filtrar('Básicas')">👕 Básicas</button>
+    <button class="cat-btn" onclick="filtrar('Body')">🩱 Body</button>
+    <button class="cat-btn" onclick="filtrar('Sweaters')">🧥 Sweaters</button>
+    <button class="cat-btn" onclick="filtrar('Conjuntos')">👗 Conjuntos</button>
+    <button class="cat-btn" onclick="filtrar('Ropa de hombre')">👔 Hombre</button>
+</div>
+
+<!-- PRODUCTOS -->
+<div class="productos-section" id="productos">
+    <div class="productos-grid" id="grid-productos"></div>
+</div>
+
+<div class="separador"></div>
+
+<!-- CONTACTO -->
+<div class="contacto" id="contacto">
+    <h2>📲 Contacto</h2>
+    <p>📱 WhatsApp: <strong>3716507393</strong></p>
+    <p>📦 Hacemos envíos a todo el país</p>
+    <p>🕐 Respondemos de lunes a sábado</p>
+    <p>❤️ Instagram: <strong>@belaa__store</strong></p>
+    <a href="https://wa.me/3716507393" class="btn-whatsapp" target="_blank">💬 Escribinos por WhatsApp</a>
+</div>
+
+<!-- CARRITO FLOTANTE -->
+<button class="carrito-float" onclick="verCarrito()">
+    🛒
+    <span class="carrito-count" id="carrito-count">0</span>
+</button>
+
+<script>
+    const productos = [
+        { nombre: "Pantalón sastrero negro", categoria: "Pantalones sastreros", precio: 15000, talle: "S, M, L", descripcion: "Pantalón sastrero recto, ideal para looks formales y casuales.", oferta: false },
+        { nombre: "Short sastrero beige", categoria: "Shorts sastreros", precio: 12000, talle: "S, M, L", descripcion: "Short de tela sastrera, cómodo y elegante.", oferta: true },
+        { nombre: "Remera básica blanca", categoria: "Básicas", precio: 8000, talle: "S, M, L, XL", descripcion: "Remera básica algodón, disponible en varios colores.", oferta: false },
+        { nombre: "Body negro", categoria: "Body", precio: 10000, talle: "S, M, L", descripcion: "Body ajustado, perfecto para combinar con cualquier prenda.", oferta: false },
+        { nombre: "Sweater oversized rosa", categoria: "Sweaters", precio: 18000, talle: "Único", descripcion: "Sweater oversize súper cómodo para el invierno.", oferta: true },
+        { nombre: "Conjunto sastrero gris", categoria: "Conjuntos", precio: 25000, talle: "S, M, L", descripcion: "Conjunto de pantalón y blazer sastrero a juego.", oferta: false },
+        { nombre: "Buzo hombre gris", categoria: "Ropa de hombre", precio: 16000, talle: "M, L, XL", descripcion: "Buzo de algodón frizado, cómodo y abrigado.", oferta: false },
+        { nombre: "Sweater hombre azul", categoria: "Ropa de hombre", precio: 17000, talle: "M, L, XL", descripcion: "Sweater de hilo, ideal para el frío.", oferta: false },
+        { nombre: "Remera hombre negra", categoria: "Ropa de hombre", precio: 9000, talle: "M, L, XL", descripcion: "Remera básica de algodón para hombre.", oferta: false },
+    ];
+
+    let carrito = [];
+    let categoriaActiva = 'todas';
+
+    function mostrarProductos(lista) {
+        const grid = document.getElementById('grid-productos');
+        grid.innerHTML = '';
+        lista.forEach((p, i) => {
+            grid.innerHTML += `
+                <div class="tarjeta">
+                    <div class="tarjeta-img">👗</div>
+                    <div class="tarjeta-body">
+                        ${p.oferta ? '<span class="oferta-badge">🔥 OFERTA</span>' : ''}
+                        <div class="tarjeta-categoria">${p.categoria}</div>
+                        <div class="tarjeta-nombre">${p.nombre}</div>
+                        <div class="tarjeta-desc">${p.descripcion}</div>
+                        <div class="tarjeta-talle">📏 ${p.talle}</div>
+                        <div class="tarjeta-precio">$${p.precio.toLocaleString()}</div>
+                        <div class="tarjeta-btns">
+                            <button class="btn-agregar" onclick="agregarCarrito(${i})">🛒 Agregar</button>
+                            <button class="btn-ver" onclick="verProducto(${i})">👁️ Ver más</button>
+                        </div>
+                    </div>
+                </div>
+            `;
+        });
+    }
+
+    function filtrar(categoria) {
+        categoriaActiva = categoria;
+        document.querySelectorAll('.cat-btn').forEach(b => b.classList.remove('active'));
+        event.target.classList.add('active');
+        const filtrados = categoria === 'todas' ? productos : productos.filter(p => p.categoria === categoria);
+        mostrarProductos(filtrados);
+    }
+
+    function agregarCarrito(i) {
+        carrito.push(productos[i]);
+        document.getElementById('carrito-count').textContent = carrito.length;
+        alert(`✅ ${productos[i].nombre} agregado al carrito!`);
+    }
+
+    function verProducto(i) {
+        const p = productos[i];
+        alert(`${p.nombre}\n\n${p.descripcion}\n\nTalles: ${p.talle}\nPrecio: $${p.precio.toLocaleString()}`);
+    }
+
+    function verCarrito() {
+        if (carrito.length === 0) {
+            alert('Tu carrito está vacío');
+            return;
+        }
+        let total = carrito.reduce((sum, p) => sum + p.precio, 0);
+        let items = carrito.map(p => `- ${p.nombre} ($${p.precio.toLocaleString()})`).join('\n');
+        let mensaje = `Hola Bela Store! Quiero hacer un pedido:\n${items}\nTotal: $${total.toLocaleString()}`;
+        window.open(`https://wa.me/3716507393?text=${encodeURIComponent(mensaje)}`, '_blank');
+    }
+
+    mostrarProductos(productos);
+</script>
+</body>
+</html>
